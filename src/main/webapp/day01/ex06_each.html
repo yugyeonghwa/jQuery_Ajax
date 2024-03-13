@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>each : 반복문 처리(for 문)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		const obj = [{"addr":"서울"}, {"addr":"부산"}, {"addr":"광주"}, {"addr":"춘천"}];
+		$(obj).each(function(k,v) {
+			/* console.log("k : ", k , "v : ", v)["addr"]; */
+		});
+		
+		$("#menu2 li").each(function(i, v) {
+			/* console.log("i : ", i , "v : ", v.innerText); */
+			console.log("i : ", i , "v : ", $(v).text());
+		})
+		
+	});
+
+</script>
+</head>
+<body>
+	<h1>each</h1>
+	<ul id="menu1">
+		<li>내용 1-1</li>
+		<li>내용 1-2</li>
+		<li>내용 1-3</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용 2-1</li>
+		<li>내용 2-2</li>
+		<li>내용 2-3</li>
+	</ul>
+</body>
+</html>

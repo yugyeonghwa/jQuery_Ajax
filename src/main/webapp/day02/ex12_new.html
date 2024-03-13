@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>한줄 뉴스-자바스크립트</title>
+<script type="text/javascript">
+		const news = ["비례 1석 줄여 전북 10석 유지…여야, 총선 선거구 확정",
+				    "강남 스쿨존 사망사고 운전자 징역 5년 확정",
+					"수술 거부 당해 다른 병원 찾다 아이 유산했습니다",
+					"3월 3일 시작…풀소유 논란에 자숙하던 혜민스님 근황",
+					"한국은 '재벌'이 일부러 주가 내려…엇갈린 해외 평가",
+					"다짜고짜 무게 달아보더니 37만 원…바가지 선 넘었다"];
+		
+		let index = 0;
+		let timer;
+		function start_news() {
+			// 2초마다 shownews 함수를 실행하자. (shownews 콜백함수)
+			timer = setInterval(() => {
+				let div = document.querySelector("#mydiv");
+				div.innerHTML = news[index++];
+				if (index === news.length) {index=0}
+			}, 2000);
+		}
+		function stop_news() {
+			// setinterval() 중지
+			clearInterval(timer);
+		}
+
+</script>
+</head>
+<body>
+	<div id="mydiv"></div>
+	<button onclick="start_news()">뉴스보기</button>
+	<button onclick="stop_news()">뉴스중지</button>
+</body>
+</html>

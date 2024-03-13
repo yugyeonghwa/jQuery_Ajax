@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// 마우스 이벤트 : click, on, bind, dblclick, mouseover, mouseout
+	/* 	
+		// click => 동적처리 못함
+		$("#p1").click(function() {alert("클릭성공")});
+		$("#p1").on("click", function() {alert("클릭성공2")});
+		
+		// 동적처리 가능
+		$("#p1").bind("click", function() {alert("클릭성공3")});
+		
+		// 더블클릭
+		$("#p1").dblclick(function() {alert("클릭성공4")});
+	*/
+		// 그림 영역에 마우스가 올라가면 이미지를 변경하자.
+		$("#img").mouseover(function() {
+			$("#img").attr("src", "../images/img06_2.gif")
+		});
+	
+		// 그림 영역에 마우스가 벗어나면 원래 이미지로 변경하자.
+		$("#img").mouseout(function() {
+			/* $("#img").attr("src", "../images/img06_1.gif"); */
+			$(this).attr("src", "../images/img06_1.gif");
+		});
+		
+		// keyup : 글자를 입력하면 
+		// val() : 값속성 가져오기
+		$("#uname").keyup(function() {
+			let name = $(this).val();
+			console.log(name);
+		});
+				
+			$("#pwd2").keyup(function() {
+				if ($("#pwd").val() === $("#pwd2").val()) {
+					$("#s1").html("<b>암호가 일치합니다</b>");
+				} else {
+					$("#s1").html("<b>암호가 불일치합니다</b>");
+				}
+			});
+		
+		// checkbox : 
+		$("#chk").change(function() {
+		/*  const str = $("#addr").val();	// 빼기
+			$("#addr2").val(str);  			// 넣기
+		*/
+				
+			const str = $("#addr").val();
+			// 선택이 되었으면 넣기, 아니면 빼기
+			// is(":checked") => 체크가 되었으면 true
+			if ($(this).is(":checked")) {
+				$("#addr2").val(str);
+			} else {
+				$("#addr2").val("");
+			}
+		});
+			
+		// 라디오
+		$("input[type=radio]").change(function() {
+			// 선택된 라디오 버튼의 value 속성 값을 가져옵니다.
+			const str = $(this).val();
+			// 출력
+			alert(str);
+			console.log(str);
+		});
+			
+			
+		$("#sel").change(function() {
+			let str="";
+			$("#sel option:selected").each(function() {
+				str += $(this).text()+"";
+			});
+			$("#s2").text(str);
+		});
+			
+			
+			
+		
+	});
+
+
+</script>
+</head>
+<body>
+	<p><span id="p1">이벤트처리</span></p>
+	<p><img id="img" alt="" src="../images/img06_1.gif"> </p>
+	<p>이름 : <input type="text" name="uname" id="uname"></p>
+	<hr>
+	
+	<p>비번 : <input type="password" name="pwd" id="pwd"></p>
+	<p>비번확인 : <input type="password" name="pwd2" id="pwd2"></p>
+	<p><span id="s1"></span></p>
+	<hr>
+	
+	<p>주소 : <input type="text" name="addr" id="addr"></p>
+	<p><input type="checkbox" id="chk">상동</p>
+	<p>주소 : <input type="text" name="addr2" id="addr2"></p>
+	<hr>
+	
+	<p>
+		<input type="radio" name="fg_color" value="red">RED
+	    <input type="radio" name="fg_color" value="blue">BLUE
+	    <input type="radio" name="fg_color" value="green">GREEN
+	</p>
+	<hr>
+	
+	<select name="sweets" multiple="multiple" id="sel" size="6">
+	  <option>Chocolate</option>
+	  <option>Candy</option>
+	  <option>Taffy</option>
+	  <option>Caramel</option>
+	  <option>Fudge</option>
+	  <option>Cookie</option>
+	</select>
+	<p><span id="s2"></span></p>
+	
+</body>
+</html>

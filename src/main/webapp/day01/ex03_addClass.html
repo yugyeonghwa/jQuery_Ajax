@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>addClass : 특정 요소에 스타일을 적용(추가)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style type="text/css">
+	.bg_yellow{background-color: yellow;}
+	.bg_red{background-color: red;}
+	.fg_red{color: red;}
+	.fg_white{color: white;}
+	div{background-color: green;}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// p요소의 첫번째와 마지막 요소 선택
+		// $("p").first().addClass("bg_yellow fg_red");
+		// $("p").last().addClass("bg_red fg_white");
+		$("p:first").addClass("bg_yellow fg_red");
+		$("p:last").addClass("bg_yellow fg_red");
+		
+		// div 요소의 홀수와 짝수
+		$("div:odd").addClass("fg_red");
+		$("div:even").addClass("fg_white");
+		
+	});
+</script>
+</head>
+<body>
+	<p>Hello</p>
+	<p class="bg_yellow fg_white">Hello</p>
+	<p>Hello</p>
+	<p>Hello</p>
+	<br>
+	<div>div-1</div>
+	<div>div-2</div>
+	<div>div-3</div>
+	<div>div-4</div>
+	<div>div-5</div>
+	
+</body>
+</html>

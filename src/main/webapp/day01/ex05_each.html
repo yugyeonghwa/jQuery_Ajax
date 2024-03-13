@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>each : 반복문 처리(for 문)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// each : 배열이나 Object에서 사용
+		// each(function(index, value){실행})
+		// each(function(key, value){실행})
+		// ** 여러번 반복할 때 현재 실행중인 요소를 선택할 때 this 사용
+		
+		$("p").each(function(index) {
+			$(this).attr("id", "para-"+index);
+		});
+	
+		$("#btn1").click(function() {
+			// js => innerHTML(), innerText(), textContent()
+			// 글자만 추출하자 => text()
+			alert($("#para-0").text());				// get
+		});
+	
+		$("#btn2").click(function() {
+			$("#res").text("Hello jQuery");			// set
+			$("#para-3").append("Hello jQuery");	// 추가
+			$("#para-4").text("Hello jQuery");
+			
+		});
+	
+	});
+
+</script>
+</head>
+<body>
+	<p>이것은 문단-1 태그입니다.</p>
+	<p>이것은 문단-2 태그입니다.</p>
+	<p>이것은 문단-3 태그입니다.</p>
+	<p>이것은 문단-4 태그입니다.</p>
+	<p>이것은 문단-5 태그입니다.</p>
+	<hr>
+	
+	<div id="res"></div>
+	<button id="btn1">버튼1</button>
+	<button id="btn2">버튼2</button>
+</body>
+</html>

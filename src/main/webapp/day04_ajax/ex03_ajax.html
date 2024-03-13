@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table {
+		width: 600px; margin-top: 50px; border-collapse: collapse;
+	}
+	table, th, td {border: 1px solid green; text-align: center;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+  /*
+     $.ajax({
+    	 url : "읽어올 서버 페이지의 위치",
+    	 method : get, post 방식 지정,
+    	 data   : 요청할때(서버페이지에 갈때)에 전달되는 파리미터(데이터),
+    	 dataType : 응답결과의 데이터 형태 (xml, html, text, json);
+     	 success : function(){} => 성공했을 때 실행 동작,
+     	 error : function(){} => 실패했을 때 실행 동작,
+     });
+   */
+   $(function() {
+	   $("#btn").click(function() {
+		$("#result").empty();
+		$.ajax({
+			url : "data05.txt",
+			method : "get",
+			dataType : "text",
+			success : function(data) {
+				let table = "<table>";
+				table += "<thead>" ;
+				table += "<tr><th>번호</th><th>이름</th><th>나이</th><th>주소</th></tr>" ;
+				table += "</thead>" ;
+				table += "<tbody>" ;
+				// console.log(data);
+				const rows = data.split("/");
+				for ( let k in rows) {
+					table +="<tr>";
+					const cols = rows[k].split(",")	;
+					for ( let i in cols) {
+						table += "<td>" + cols[i]+"</td>";
+					}
+					
+					table +="</tr>";
+				}
+				
+				table += "</tbody></table>" ;
+				$("#result").append(table);
+			},
+			error:function(){
+				alert("가져오기 실패");
+			}
+		});
+	});
+   });
+</script>
+</head>
+<body>
+	<div id="btn">가져오기</div>
+	<div id="result"></div>
+</body>
+</html>

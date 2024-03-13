@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// eq(index) : 몇번째
+		$("#wrap p:eq(1)").css("background", "skyblue");
+		$("#wrap p:eq(1)").after("<p>after</p>");		// 선택한 요소 뒤
+		$("#wrap p:eq(1)").before("<p>before</p>");		// 선택한 요소 앞
+		$("#wrap").prepend("<p>prepend</p>");	// 선택한 요소 맨 앞
+		$("#wrap").append("<p>append</p>");		// 선택한 요소 맨 뒤
+	});
+
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<p>내용1</p>
+		<p>내용2</p>
+		<p>내용3</p>
+	</div>
+</body>
+</html>
